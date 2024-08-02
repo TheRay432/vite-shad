@@ -51,6 +51,10 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        primary: "#fb5830"
+      },
+      maxWidth: {
+        container: "1280px",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -70,6 +74,9 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      boxShadow: {
+        boxOrange: "0 0 1px 5px rgba(251, 88, 48, 0.3)",
       },
     },
   },
