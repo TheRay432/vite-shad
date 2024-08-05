@@ -20,15 +20,9 @@ const SearchCondition: React.FC = () => {
       <div>
         <h2>分類</h2>
         {applianceCategories.map((category) => (
-          <>
-            <div className="my-6">
-              <RCheckbox
-                key={category.id}
-                id={category.id}
-                labelName={category.label}
-              />
-            </div>
-          </>
+          <div className="my-6" key={category.id}>
+            <RCheckbox id={category.id} labelName={category.label} />
+          </div>
         ))}
       </div>
     </>
