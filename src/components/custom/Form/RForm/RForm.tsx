@@ -9,7 +9,7 @@ interface CustomFormProps<T extends FieldValues = FieldValues> {
   children: ReactElement | ReactElement[];
   defaultValues?: DefaultValues<T>;
 }
-const CustomForm = <T extends FieldValues = FieldValues>({
+const RForm = <T extends FieldValues = FieldValues>({
   onSubmit,
   children,
   defaultValues
@@ -34,4 +34,4 @@ const CustomForm = <T extends FieldValues = FieldValues>({
   );
 };
 
-export default CustomForm;
+export default RForm;
