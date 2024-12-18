@@ -1,12 +1,11 @@
-import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
-import React, { ReactElement } from "react";
-import { DefaultValues, FieldValues, useForm } from "react-hook-form";
+import { ReactElement } from "react";
+import { DefaultValues, FieldValues, useForm, UseFormReturn } from "react-hook-form";
 
 // Custom Form component
 interface CustomFormProps<T extends FieldValues = FieldValues> {
   onSubmit: (data: T) => void;
-  children: ReactElement | ReactElement[];
+  children: (form: UseFormReturn<T>) => ReactElement | ReactElement[];
   defaultValues?: DefaultValues<T>;
 }
 const RForm = <T extends FieldValues = FieldValues>({
@@ -23,12 +22,7 @@ const RForm = <T extends FieldValues = FieldValues>({
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-6">
-        {React.Children.map(children, (child) => {
-          return React.cloneElement(child, { form });
-        })}
-        <Button type="submit" className="w-full">
-          Submit
-        </Button>
+       {children(form)}
       </form>
     </Form>
   );

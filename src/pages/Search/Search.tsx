@@ -3,6 +3,7 @@ import { DefaultValues } from "react-hook-form";
 import SearchCondition from "@/pages/Search/components/SearchCondition";
 import RForm from "@/components/custom/Form/RForm/RForm";
 import CustomFormField from "@/components/custom/Form/RFormField/RFormField";
+import { Button } from "@/components/ui/button";
 
 interface FormValues {
   username: string;
@@ -47,18 +48,27 @@ const Search: React.FC = () => {
       {/* 產品列表 */}
       <div className="w-9/12">
         <RForm onSubmit={onSubmit} defaultValues={defaultValues} >
-          <CustomFormField
-            name="username"
-            label="Username"
-            description="This is your public display name."
-            validators={list}
-          />
-          <CustomFormField
-            name="email"
-            label="Email"
-            type="text"
-            validators={list}
-          />
+          {(form) => (
+            <>
+              <CustomFormField
+                form={form}
+                name="username"
+                label="Username"
+                description="This is your public display name."
+                validators={list}
+              />
+              <CustomFormField
+                form={form}
+                name="email"
+                label="Email"
+                type="text"
+                validators={list}
+              />
+              <Button type="submit" className="w-full">
+                Submit
+              </Button>
+            </>
+          )}
         </RForm>
       </div>
     </div>
